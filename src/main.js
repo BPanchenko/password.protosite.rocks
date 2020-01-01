@@ -1,9 +1,16 @@
-import App from "./App.svelte";
+import App from "./App.svelte"
 
 const app = new App({
-  target: document.body.getElementsByClassName('js-app')[0]
-});
+  target: document.body.getElementsByClassName('js-app')[0],
+  props: {
+    settings: {
+      hasLowerCase: true,
+      hasUpperCase: false,
+      hasSymbols: false,
+      hasNumbers: true,
+      length: 8
+    }
+  }
+})
 
-console.log(app)
-
-export default app;
+export default app
