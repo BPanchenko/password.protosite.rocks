@@ -1,16 +1,7 @@
 import App from "./App.html"
 
 const app = new App({
-  target: document.body.getElementsByClassName('js-app')[0],
-  props: {
-    settings: {
-      hasLowerCase: true,
-      hasUpperCase: false,
-      hasSymbols: false,
-      hasNumbers: true,
-      length: 8
-    }
-  }
+  target: document.body.getElementsByClassName('js-app')[0]
 })
 
 export default app

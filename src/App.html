@@ -1,19 +1,17 @@
 <script>
+    import {
+        hasLowerCase,
+        hasSymbols,
+        hasNumbers,
+        hasUpperCase,
+        length
+    } from './store'
+    
     import Password from './components/Password.html';
     
     const LETTERS = "zyxwvutsrqponmlkjihgfedcba"
     const NUMBERS = "9876543210"
     const SYMBOLS = "%*()?@#$~"
-    
-    export let settings, psw
-
-    let {
-        hasLowerCase = true,
-        hasUpperCase = false,
-        hasSymbols = false,
-        hasNumbers = true,
-        length = 8
-    } = settings
     
     let form, txtLength, chxLowerCase, chxUpperCase, chxSymbols, chxNumbers
     let psw_hystory = []
@@ -31,19 +29,19 @@
         let psw = ''
         let alphabet = ''
 
-        if (hasLowerCase) alphabet += LETTERS
-        if (hasUpperCase) alphabet += LETTERS.toUpperCase()
-        if (hasSymbols) alphabet += SYMBOLS
-        if (hasNumbers) alphabet += NUMBERS
+        if ($hasLowerCase) alphabet += LETTERS
+        if ($hasUpperCase) alphabet += LETTERS.toUpperCase()
+        if ($hasSymbols) alphabet += SYMBOLS
+        if ($hasNumbers) alphabet += NUMBERS
 
-        if (alphabet.length) for (let i = 0; i < length; i++) {
+        if (alphabet.length) for (let i = 0; i < $length; i++) {
             psw += alphabet[Math.round(Math.random() * (alphabet.length - 1))]
         }
 
         return psw
     }
     
-    psw = generatePassword()
+    export let psw = generatePassword()
 </script>
 
 <div class="o-grid">
@@ -74,23 +72,23 @@
             <div class="c-panel__body">
                 <form bind:this={form} on:change={onSubmitForm} class="o-form js-psw-options">
                     <label class="o-form__row c-field-box">
-                        <span class="c-field-label">Длинна пароля: {length}</span>
-                        <input bind:this={txtLength} bind:value={length} type="range" name="length" min="3" max="24" class="c-field">
+                        <span class="c-field-label">Длинна пароля: {$length}</span>
+                        <input bind:this={txtLength} bind:value={$length} type="range" name="length" min="3" max="24" class="c-field">
                     </label>
                     <label class="o-form__row">
-                        <input bind:this={chxNumbers} bind:checked={hasNumbers} type="checkbox" name="numbers" class="c-field">
+                        <input bind:this={chxNumbers} bind:checked={$hasNumbers} type="checkbox" name="numbers" class="c-field">
                         <span class="c-field-label">Цифры</span>
                     </label>
                     <label class="o-form__row">
-                        <input bind:this={chxUpperCase} bind:checked={hasUpperCase} type="checkbox" name="upper-case" class="c-field">
+                        <input bind:this={chxUpperCase} bind:checked={$hasUpperCase} type="checkbox" name="upper-case" class="c-field">
                         <span class="c-field-label">Прописные буквы</span>
                     </label>
                     <label class="o-form__row">
-                        <input bind:this={chxLowerCase} bind:checked={hasLowerCase} type="checkbox" name="lower-case" class="c-field">
+                        <input bind:this={chxLowerCase} bind:checked={$hasLowerCase} type="checkbox" name="lower-case" class="c-field">
                         <span class="c-field-label">Строчные буквы</span>
                     </label>
                     <label class="o-form__row">
-                        <input bind:this={chxSymbols} bind:checked={hasSymbols} type="checkbox" name="symbols" class="c-field">
+                        <input bind:this={chxSymbols} bind:checked={$hasSymbols} type="checkbox" name="symbols" class="c-field">
                         <span class="c-field-label">Символы <q>{SYMBOLS}</q></span>
                     </label>
                 </form>
