@@ -1,0 +1,51 @@
+<script>
+    import {
+        hasLowerCase,
+        hasSymbols,
+        hasNumbers,
+        hasUpperCase,
+        length
+    } from '../store'
+
+    import {
+        SYMBOLS
+    } from '../constants'
+    
+    let form, txtLength, chxLowerCase, chxUpperCase, chxSymbols, chxNumbers
+</script>
+
+<section class="c-panel">
+    <div class="c-panel__head">
+        <h3>Настройки генератора пароля</h3>
+    </div>
+    <div class="c-panel__body">
+        <form bind:this={form} class="o-form js-psw-options">
+            <label class="o-form__row c-field-box">
+                <span class="c-field-label">Длинна пароля: {$length}</span>
+                <input bind:this={txtLength} bind:value={$length} type="range" name="length" min="3" max="24" class="c-field">
+            </label>
+            <label class="o-form__row">
+                <input bind:this={chxNumbers} bind:checked={$hasNumbers} type="checkbox" name="numbers" class="c-field">
+                <span class="c-field-label">Цифры</span>
+            </label>
+            <label class="o-form__row">
+                <input bind:this={chxUpperCase} bind:checked={$hasUpperCase} type="checkbox" name="upper-case" class="c-field">
+                <span class="c-field-label">Прописные буквы</span>
+            </label>
+            <label class="o-form__row">
+                <input bind:this={chxLowerCase} bind:checked={$hasLowerCase} type="checkbox" name="lower-case" class="c-field">
+                <span class="c-field-label">Строчные буквы</span>
+            </label>
+            <label class="o-form__row">
+                <input bind:this={chxSymbols} bind:checked={$hasSymbols} type="checkbox" name="symbols" class="c-field">
+                <span class="c-field-label">Символы <q>{SYMBOLS}</q></span>
+            </label>
+        </form>
+    </div>
+</section>
+
+<style>
+    .o-form__row {
+        justify-content: flex-start;
+    }
+</style>
