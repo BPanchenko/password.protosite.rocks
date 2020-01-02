@@ -9,59 +9,16 @@
     
     import Password from './components/Password.html';
     
-    const LETTERS = "zyxwvutsrqponmlkjihgfedcba"
-    const NUMBERS = "9876543210"
-    const SYMBOLS = "%*()?@#$~"
-    
     let form, txtLength, chxLowerCase, chxUpperCase, chxSymbols, chxNumbers
-    let psw_hystory = []
-
-    let onClickReload = () => {
-        psw && (psw_hystory = [psw, ...psw_hystory.slice(0, 9)])
-        psw = generatePassword()
-    }
     
     let onSubmitForm = () => {
         psw = generatePassword()
     }
-
-    function generatePassword() {
-        let psw = ''
-        let alphabet = ''
-
-        if ($hasLowerCase) alphabet += LETTERS
-        if ($hasUpperCase) alphabet += LETTERS.toUpperCase()
-        if ($hasSymbols) alphabet += SYMBOLS
-        if ($hasNumbers) alphabet += NUMBERS
-
-        if (alphabet.length) for (let i = 0; i < $length; i++) {
-            psw += alphabet[Math.round(Math.random() * (alphabet.length - 1))]
-        }
-
-        return psw
-    }
-    
-    export let psw = generatePassword()
 </script>
 
 <div class="o-grid">
     <div class="o-grid__cell u-width-1-2 u-width-1-1@tablet-portrait">
-
-        <section>
-            <Password value={psw}/>
-            <a href="#generate-password" class="c-button-icon u-margin-left" on:click|preventDefault={onClickReload}>
-                <i class="iconic" data-glyph="reload"></i>
-            </a>
-            <br>
-            {#if psw_hystory.length > 0}
-                <ul>
-                {#each psw_hystory as psw_hystory_item}
-                    <li>{psw_hystory_item}</li>
-                {/each}
-                </ul>
-            {/if}
-        </section>
-
+        <Password/>
     </div>
     <div class="o-grid__cell u-width-1-2 u-width-1-1@tablet-portrait">
 
