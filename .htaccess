@@ -22,7 +22,7 @@ ErrorDocument 500 /errors/500.html
 </IfModule>
 
 # php_value auto_prepend_file auto_prepend_file.php
-php_flag engine off
+php_flag engine on
 php_value date.timezone UTC
 php_value default_charset utf-8
 php_value max_file_uploads 0
