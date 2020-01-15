@@ -1,22 +1,22 @@
 <!doctype html>
 <html lang="ru">
-    <head>
+    <head itemscope itemtype="http://schema.org/WPHeader">
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, minimal-ui, shrink-to-fit=no">
 
-        <title>Генератор паролей онлайн</title>
+        <title itemprop="headline">Генератор паролей онлайн</title itemprop="headline">
         <meta name="application-name" content="Password Generator">
         <meta name="author" content="Boris Panchenko, hello@bpanchenko.ru">
         
-        <meta name="description" content="Онлайн-инструмент для подбора безопасного и устойчивого к взлому пароля из набора случайных комбинаций, сгенерированных из разных символов по выбранным параметрам.">
-        <meta name="keywords" content="генератор, пароль, онлайн, email, почта, htpasswd, безопасность">
+        <meta itemprop="description" name="description" content="Онлайн-инструмент для подбора безопасного и устойчивого к взлому пароля из набора случайных комбинаций, сгенерированных из разных символов по выбранным параметрам.">
+        <meta itemprop="keywords" name="keywords" content="генератор, пароль, онлайн, email, почта, htpasswd, безопасность">
         <meta name="yandex-verification" content="becb3f4198dd10e3">
 
         <link rel="stylesheet" href="http://uikit.protosite.rocks/assets/uikit.css">
         <link rel="stylesheet" href="/assets/app.css">
     </head>
-    <body>
+    <body itemscope itemtype="http://schema.org/WebApplication">
         <header role="banner" class="o-container u-margin-bottom-remove">
             <div class="u-float-right">
                 <a href="https://github.com/BPanchenko/password.protosite.rocks" target="_blank">
@@ -33,7 +33,14 @@
         <footer role="contentinfo" class="o-container u-margin-large-top">
             <hr>
             <div class="u-float-right">
-                <span class="s-cursive u-text-large">&copy; <a href="http://bpanchenko.ru" class="s-floating u-text-color">Boris Panchenko</a>, 2020</span>
+                <span itemprop="author" itemscope itemtype="http://schema.org/Person" class="s-cursive u-text-large">
+                    &copy;
+                    <link itemprop="sameAs" href="http://bpanchenko.ru" />
+                    <a rel="author" href="http://bpanchenko.ru" class="s-floating u-text-color" itemprop="sameAs">
+                        <span itemprop="name">Boris Panchenko</span>
+                    </a>,
+                    2020
+                </span>
             </div>
         </footer>
         <script src="/assets/app.js"></script>
